@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindMaze | Start</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-50 min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white shadow-lg rounded-2xl p-8 max-w-xl w-full">
+    <h1 class="text-3xl font-bold text-center text-purple-600">🧠 MindMaze</h1>
+    <p class="text-center text-gray-500 mb-6">Your personalized AI tutor</p>
+
+    <form id="user-form" class="space-y-4">
+      <input id="topic" type="text" placeholder="Enter a topic" class="w-full p-3 border rounded-xl" required />
+
+      <label for="level" class="block text-sm font-medium text-gray-700">Select Level</label>
+      <select id="level" class="w-full p-3 border rounded-xl">
+        <option value="5yo">5-year-old</option>
+        <option value="highschool" selected>High School</option>
+        <option value="university">University</option>
+      </select>
+
+      <label for="style" class="block text-sm font-medium text-gray-700">Select Style</label>
+      <select id="style" class="w-full p-3 border rounded-xl">
+        <option value="basic">Basic</option>
+        <option value="few-shot">Few-shot</option>
+        <option value="instruction">Instruction</option>
+      </select>
+
+      <button type="submit" class="w-full bg-purple-600 text-white p-3 rounded-xl font-semibold hover:bg-purple-700">
+        Continue →
+      </button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("user-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const topic = document.getElementById("topic").value;
+      const level = document.getElementById("level").value;
+      const style = document.getElementById("style").value;
+
+      // Save user input to localStorage
+      localStorage.setItem("topic", topic);
+      localStorage.setItem("level", level);
+      localStorage.setItem("style", style);
+
+      // Redirect to results page
+      window.location.href = "result.html";
+    });
+  </script>
+</body>
+</html>
